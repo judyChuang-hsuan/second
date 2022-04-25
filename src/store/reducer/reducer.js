@@ -1,20 +1,21 @@
-const initialState={
-    user:"",
-    token:""
-}
+const initialState = {
+  currentUser: {
+    user: "",
+    token: "",
+  },
+  loggedIn: false,
+};
 
-const reducer=(state=initialState,action={})=>{
-    switch(action.type){
-        case "LOGIN":
-            return {...state};
-        case "LOGOUG":
-            return {...state};
+const reducer = (state = initialState, action = {}) => {
+  switch (action.type) {
+    case "LOGIN":
+      return { loggedIn: true, currentUser: action.payload };
+    case "LOGOUT":
+      return { loggedIn: false, currentUser: {} };
 
-        default:
-            return {...state}
-            
-
-    }
-}
+    default:
+      return { ...state };
+  }
+};
 
 export default reducer;
