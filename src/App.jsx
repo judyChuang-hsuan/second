@@ -9,25 +9,7 @@ import {BrowserRouter,Routes,Route} from "react-router-dom";
 import SingleProductPage from './pages/SingleProductPage';
 
 function App() {
-  function Login(){
-     return new Promise((res)=>{
-      setTimeout(res({name:"Edward",token:"AOQGKICVOGJANGO"}),1000)
-    })
-  }
-  Login.then((value)=>{
-    console.log(value);
-  })
-
-  console.log(Login);
-
-  function Logout(){
-    return new Promise((res)=>{
-      setTimeout(res(true),1000)
-    })
-  }
-
-
-
+ 
   return (
     <BrowserRouter>
     <Routes>
