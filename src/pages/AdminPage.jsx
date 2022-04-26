@@ -1,18 +1,25 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
-const AdminPage = () => {
-  const history = useHistory();
-  const dispatch = useDispatch();
+import React, { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector,useDispatch } from "react-redux";
 
+const AdminPage = () => {
+  const user=useSelector((state)=>state.currentuser.name);
+  console.log(user);
+  const history = useNavigate();
+  const dispatch = useDispatch();
+  const clearUser=useCallback(()=>{
+    dispatch({type:"LOGOUT"})
+  },[dispatch]);
   const clickHandler = () => {
-    dispatch("LOGOUT");
-    history.push("/");
+    clearUser();
+    sessionStorage.clear()
+    history("/login");
   };
   return (
     <>
       <div>AdminHome</div>
-      <button>Logout</button>
+      <p>{user}</p>
+      <button onClick={clickHandler}>Logout</button>
     </>
   );
 };
