@@ -8,7 +8,7 @@ const ProductListPage = () => {
       <h1>ProductList</h1>
       {data.map((d) => {
         return (
-          <Link className="product" to={`/product/${d.id}`}>
+          <Link key={d.id} className="product" to={`/product/${d.id}`}>
             {d.name}
           </Link>
         );

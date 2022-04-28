@@ -36,8 +36,12 @@ const LoginPage = () => {
   const getToken = async () => {
     try {
       let result = await Login();
+      let getUser={
+        "name":result.name,
+        "token":result.token
+      }
       if (loggedIn) {
-        sessionStorage.setItem("id", result.token);
+        sessionStorage.setItem("id", JSON.stringify(getUser));
       }
       receiveToken();
     } catch (error) {

@@ -2,7 +2,7 @@ import { Login } from "../../api";
 import { Logout } from "../../api";
 const initialState = {
   currentuser: {
-    name: "Edward",
+    name: "",
     token: "",
   },
   login: {

@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 const AdminPage = () => {
-  const user = useSelector((state) => state.currentuser.name);
+  const user = JSON.parse(sessionStorage.getItem("id"))
+  console.log(user);
   const history = useNavigate();
   const dispatch = useDispatch();
   const clearUser = useCallback(() => {
@@ -16,10 +17,11 @@ const AdminPage = () => {
     sessionStorage.clear();
     history("/login");
   };
+  let user1=JSON.parse(sessionStorage.getItem("id"));
   return (
     <>
       <div>AdminHome</div>
-      <p>Hi, {user}</p>
+      <p>Hi,  {user1.name} </p>
       <button onClick={clickHandler}>Logout</button>
     </>
   );
